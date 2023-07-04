@@ -13,18 +13,29 @@ function generatePassword(){
 
 
   return
+  askHowManyCharacters()
 }
 
 function askHowManyCharacters(){
+  var howmanyCharactersPrompt = prompt ('How many characters do you want your password to have (must be between 8 and 128)?')
 
+  howmanyCharacters = parseInt(howmanyCharactersPrompt)
 
-
+  if( howmanyCharacters < 8 ){
+    alert("Password must be greater than 8 characters. Password automatically set to 8 characters.")
+    howmanyCharacters = 8;
+  } else if (howmanyCharacters > 128){
+    alert ("Password must be less than 128 characters. Password automatically set to 8 characters.")
+    howmanyCharacters = 8;
+  }
   askAboutSpecialCharacters()
 }
 
 
 function askAboutSpecialCharacters (){
-
+  
+  
+writePassword()
 }
 
 
@@ -42,3 +53,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+generatePassword ()
