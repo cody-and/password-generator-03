@@ -33,7 +33,34 @@ function askHowManyCharacters(){
 
 
 function askAboutSpecialCharacters (){
+  var askAboutSpecialCharactersPrompt = prompt ('How many special characters do you want your pass word to have?')
   
+  var specialCharacters = parseInt (askAboutSpecialCharactersPrompt)
+  
+
+
+
+
+  var askAboutUppercaseCharactersPrompt = prompt ('How many uppercase characters do you want in your password?')
+
+  var howManyUppercase;
+
+  askAboutUppercaseCharactersPrompt = parseInt(howManyUppercase) 
+
+  if(howManyUppercase > howmanyCharacters){
+    alert('There cannot be more uppercase letters than characters. Password set to one uppercase character.')
+    howManyUppercase = 1;
+  }
+  
+  var askAboutNumericCharactersPrompt = prompt ('How many numeric charachters do you want in your password?')
+
+  var howManyNumeric;
+
+  askAboutNumericCharactersPrompt = parseInt(howManyNumeric)
+
+  if (howManyNumeric > howmanyCharacters){
+    alert('There cannot be more numeric characters than characters total. Numeric characters set to one numeric character.')
+  }
   
 writePassword()
 }
