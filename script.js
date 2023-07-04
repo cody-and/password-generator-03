@@ -33,37 +33,26 @@ function askHowManyCharacters(){
 
 
 function askAboutSpecialCharacters (){
-  var askAboutSpecialCharactersPrompt = prompt ('How many special characters do you want your pass word to have?')
-  
-  var specialCharacters = parseInt (askAboutSpecialCharactersPrompt)
-  
+  var includeLowercase = confirm("Do you want to include lowercase characters?");
+  var includeUppercase = confirm("Do you want to include uppercase characters?");
+  var includeNumeric = confirm("Do you want to include numeric characters?");
+  var includeSpecial = confirm("Do you want to include special characters?");
 
-
-
-
-  var askAboutUppercaseCharactersPrompt = prompt ('How many uppercase characters do you want in your password?')
-
-  var howManyUppercase;
-
-  askAboutUppercaseCharactersPrompt = parseInt(howManyUppercase) 
-
-  if(howManyUppercase > howmanyCharacters){
-    alert('There cannot be more uppercase letters than characters. Password set to one uppercase character.')
-    howManyUppercase = 1;
+  if (!includeLowercase && !includeUppercase && !includeNumeric && !includeSpecial) {
+    alert("At least one character type must be selected. Lowercase characters will be included by default.");
+    includeLowercase = true;
   }
-  
-  var askAboutNumericCharactersPrompt = prompt ('How many numeric charachters do you want in your password?')
-
-  var howManyNumeric;
-
-  askAboutNumericCharactersPrompt = parseInt(howManyNumeric)
-
-  if (howManyNumeric > howmanyCharacters){
-    alert('There cannot be more numeric characters than characters total. Numeric characters set to one numeric character.')
-  }
-  
-writePassword()
+  generatePassword(includeLowercase, includeUppercase, includeNumeric, includeSpecial);
 }
+
+function generatePassword (includeLowercase, includeUppercase, includeNumeric, includeSpecial) {
+
+
+
+
+  writePassword()
+}
+
 
 
 // Write password to the #password input
